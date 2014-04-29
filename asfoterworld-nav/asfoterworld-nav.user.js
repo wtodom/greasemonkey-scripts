@@ -4,6 +4,11 @@
 // @grant       none
 // ==/UserScript==
 
+/*
+    Use the left and right arrow keys to navigate forward and backward.
+    The up arrow key toggles the alt text.
+*/
+
 var script = document.createElement('script');
 script.src = 'http://code.jquery.com/jquery-1.11.0.min.js';
 script.type = 'text/javascript';
@@ -20,10 +25,10 @@ document.onkeydown = function(e) {
     var prev = base + (parseInt(url[1]) - 1);
 
     if (e.keyCode == '37') {  //left
-        location.href = prev;
+        window.location = $("#backbutton > a").attr('href');
     }
     else if (e.keyCode == '39') {  //right
-        location.href = next;
+        window.location = $("#nextbutton > a").attr('href');
     }
     else if (e.keyCode == '38') {  //up
         if (toggle) {
@@ -33,8 +38,5 @@ document.onkeydown = function(e) {
             $("#alertLayer > table").trigger('click');
         }
         toggle = !toggle;
-    }
-    else if (e.keyCode == '40') {  //down
-
     }
 };
