@@ -10,7 +10,7 @@
 */
 
 var script = document.createElement('script');
-script.src = 'http://code.jquery.com/jquery-1.11.0.min.js';
+script.src = '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1-rc2/jquery.min.js';
 script.type = 'text/javascript';
 document.getElementsByTagName('head')[0].appendChild(script);
 
@@ -18,11 +18,6 @@ var toggle = true;
 
 document.onkeydown = function(e) {
     e = e || window.event;
-
-    var url = document.URL.split("=");
-    var base = url[0] + "=";
-    var next = base + (parseInt(url[1]) + 1);
-    var prev = base + (parseInt(url[1]) - 1);
 
     if (e.keyCode == '37') {  //left
         window.location = $("#backbutton > a").attr('href');
